@@ -1,0 +1,43 @@
+﻿﻿
+<body style="padding:10px">
+	<div class="col-xs-8">
+		<div class="panel-heading">
+			<h3>Student Search Form</h3>
+		</div>
+		<form asp-controller="Student" asp-action="DynamicSQL">
+			<div>
+				<labl for="Name"> Name</labl>
+				<br />
+				<input type="text" name="Name" placeholder="Name" />
+			</div>
+			<br />
+			<div>
+				<labl for="Isikukood">Isikukood</labl>
+				<br />
+				<input type="number" name="Isikukood" placeholder="Isikukood" />
+			</div>
+			<br />	
+			
+			<input type="submit" value="DynamicSQL" />
+		</form>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Isikukood</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var emp in Model)
+				{
+					<tr>
+						<td>@emp.Name</td>
+						<td>@emp.Isikukood</td>
+					
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</body>
